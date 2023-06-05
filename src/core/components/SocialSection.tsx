@@ -11,7 +11,7 @@ const SocialSection = forwardRef<HTMLElement, object>((_, ref) => {
                 <h3 className="text-2xl pt-48 text-neutral-950">Socials</h3>
                 <div className="grid grid-cols-1 col-span-2 gap-8 pt-48">
                     <a
-                        href="https://github.com/frans-slabbekoorn"
+                        href={process.env.NEXT_PUBLIC_SOCIAL_GITHUB}
                         target="_blank"
                         rel="noreferrer"
                         data-type="link"
@@ -23,7 +23,7 @@ const SocialSection = forwardRef<HTMLElement, object>((_, ref) => {
                         </div>
                     </a>
                     <a
-                        href="https://nl.linkedin.com/in/frans-slabbekoorn?trk=public_profile_browsemap"
+                        href={process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN}
                         target="_blank"
                         rel="noreferrer"
                         data-type="link"
@@ -34,8 +34,37 @@ const SocialSection = forwardRef<HTMLElement, object>((_, ref) => {
                             <Icon name="arrow-outward" rotate="90" />
                         </div>
                     </a>
-                    <a data-type="link" className="row relative text-base text-neutral-900">
+                    <a
+                        href={process.env.NEXT_PUBLIC_SOCIAL_TWITTER}
+                        target="_blank"
+                        data-type="link"
+                        className="row relative text-base text-neutral-900"
+                        rel="noreferrer">
                         <AnimationWrapper>Twitter</AnimationWrapper>
+                        <hr className="h-px border-neutral-200 mt-4" />
+                        <div className="absolute bottom-0 right-0 pr-6 pb-6 text-neutral-950">
+                            <Icon name="arrow-outward" rotate="90" />
+                        </div>
+                    </a>
+                    <a
+                        href={process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM}
+                        target="_blank"
+                        data-type="link"
+                        className="row relative text-base text-neutral-900"
+                        rel="noreferrer">
+                        <AnimationWrapper>Instagram</AnimationWrapper>
+                        <hr className="h-px border-neutral-200 mt-4" />
+                        <div className="absolute bottom-0 right-0 pr-6 pb-6 text-neutral-950">
+                            <Icon name="arrow-outward" rotate="90" />
+                        </div>
+                    </a>
+                    <a
+                        href={process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK}
+                        target="_blank"
+                        data-type="link"
+                        className="row relative text-base text-neutral-900"
+                        rel="noreferrer">
+                        <AnimationWrapper>Facebook</AnimationWrapper>
                         <hr className="h-px border-neutral-200 mt-4" />
                         <div className="absolute bottom-0 right-0 pr-6 pb-6 text-neutral-950">
                             <Icon name="arrow-outward" rotate="90" />

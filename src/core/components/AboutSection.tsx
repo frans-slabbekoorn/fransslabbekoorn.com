@@ -15,12 +15,9 @@ const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
                     <h3 className="text-xl text-neutral-700 col-span-3 mt-8 sm:mt-0">
                         As a Software Developer, I am responsible for creating fast, robust APIs and
                         handling all technical aspects related to backend development. My expertise
-                        lies in crafting efficient and scalable solutions that ensure seamless
-                        functionality and exceptional performance. With a deep understanding of
-                        programming languages, frameworks, and databases, I strive to deliver
-                        high-quality backend architectures that power modern web applications.
-                        Collaborating with teams, I bring my problem solving skills and passion for
-                        technology to create innovative and reliable software solutions.
+                        lies in crafting efficient solutions with a focus on scalability and
+                        performance. My passion for technology and coding is what drives me to
+                        constantly learn and improve my skills.
                         <hr className="h-px border-neutral-200 mt-8" />
                     </h3>
                 </div>
@@ -32,8 +29,8 @@ const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
                     </ScrollWrapper>
 
                     <h3 className="text-base text-neutral-700 col-span-2 mt-8 sm:mt-0">
-                        With over 4 years of experience in back-end development I&apos;m confident
-                        in using the following technologies:
+                        With over 4 years of experience in backend development I&apos;m confident in
+                        using the following technologies:
                     </h3>
                 </div>
                 <div className="wrapper grid grid-cols-1 sm:grid-cols-4 mt-16">
@@ -90,7 +87,7 @@ const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
                                 rel="noreferrer"
                                 className="wrapper flex justify-between">
                                 <p className="year">
-                                    <AnimationWrapper>2023-</AnimationWrapper>
+                                    <AnimationWrapper>2023-now</AnimationWrapper>
                                 </p>
                                 <p className="place">
                                     <AnimationWrapper>Pixel Perfect Agency</AnimationWrapper>

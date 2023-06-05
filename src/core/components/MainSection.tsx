@@ -63,13 +63,14 @@ const MainSection: React.FC<MainSectionProps> = ({ aboutSectionRef, socialsSecti
             </div>
             <div className="wrapper pt-8 sm:pt-12 md:pt-16 flex flex-col sm:flex-row justify-between">
                 <p className="text-sm sm:text-left font-regular text-neutral-600 w-full sm:w-2/4 mt-4 sm:mt-48">
-                    Currently working for
+                    Currently working for{' '}
                     <a
                         data-type="link"
                         href="https://pixelperfect.agency"
+                        className="underline"
                         target="_blank"
                         rel="noreferrer">
-                        https://pixelperfect.agency
+                        Pixel Perfect Agency
                     </a>
                 </p>
                 <ScrollWrapper x={50} className="w-full sm:w-2/6">

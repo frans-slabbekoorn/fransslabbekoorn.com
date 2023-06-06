@@ -1,8 +1,9 @@
 import React from 'react';
+import type { FC } from 'react';
 
 import useMouseTrailer from '~hooks/useMouseTrailer';
 
-const MouseTrailer: React.FC = () => {
+const MouseTrailer: FC = () => {
     const { trailerRef, cursorRef, interacting } = useMouseTrailer();
 
     if (typeof window !== 'undefined' && 'ontouchstart' in window) {

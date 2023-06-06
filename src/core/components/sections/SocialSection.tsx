@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import AnimationWrapper from '~components/misc/AnimationWrapper';
-
-import Icon from './utils/Icon';
+import Icon from '~components/utils/Icon';
 
 const SocialSection = forwardRef<HTMLElement, object>((_, ref) => {
     return (
@@ -75,6 +74,7 @@ const SocialSection = forwardRef<HTMLElement, object>((_, ref) => {
             <hr className="h-px border-neutral-200 mt-32" />
             <div className="flex justify-between mt-8 pb-8">
                 <p className="text-sm text-neutral-600">Frans Slabbekoorn</p>
+                <p className="text-[0.8rem] text-neutral-600">Front-end by Joan Verhulst</p>
             </div>
         </section>
     );

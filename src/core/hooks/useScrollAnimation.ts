@@ -15,7 +15,7 @@ interface Options {
  * @param element - A reference to the HTML element to animate.
  * @param options - An object containing animation options. Defaults to `{ scale: 0.95, y: -10 }`.
  * @param options.scale - The scale of the element at the start and end of the animation.
- * @param options.y - The vertical distance of the element at the start and end of the animation.
+ * @param options.x - The horizontal distance of the element at the start and end of the animation.
  */
 
 const useScrollAnimation = (element: React.RefObject<HTMLElement>, { x = -10 }: Options = {}) => {

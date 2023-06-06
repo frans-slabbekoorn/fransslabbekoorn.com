@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
+import type { FC } from 'react';
 
 import { gsap } from 'gsap';
 
-import Icon from './utils/Icon';
+import Icon from '~components/utils/Icon';
 
 interface Props {
     title: string;
@@ -10,7 +11,7 @@ interface Props {
     color?: string;
 }
 
-const Card: React.FC<Props> = ({ title, onClick, color = 'bg-primary-500' }) => {
+const Card: FC<Props> = ({ title, onClick, color = 'bg-primary-500' }) => {
     const textRef = useRef<HTMLDivElement>(null);
 
     const handleMouseEnter = () => {

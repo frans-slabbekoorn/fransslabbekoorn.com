@@ -5,11 +5,11 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-import AboutSection from '~components/AboutSection';
-import MainSection from '~components/MainSection';
-import SocialSection from '~components/SocialSection';
 import AnimationWrapper from '~components/misc/AnimationWrapper';
 import CustomCursor from '~components/misc/CustomCursor';
+import AboutSection from '~components/sections/AboutSection';
+import MainSection from '~components/sections/MainSection';
+import SocialSection from '~components/sections/SocialSection';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -47,9 +47,6 @@ const Page = () => {
         // Disable scrolling on the body
         document.body.style.overflow = 'hidden';
 
-        // Disable scrolling on the body
-        document.body.style.overflow = 'hidden';
-
         // Scroll to the top of the page
         window.scrollTo(0, 0);
     }, []);
@@ -82,9 +79,9 @@ const Page = () => {
                         </span>
                     </span>
                 </div>
-                <div className="box box-1 absolute top-[0%] w-screen bg-neutral-50 " />
-                <div className="box box-2 absolute w-screen top-[66.6%] bg-neutral-50 " />
-                <div className="box box-3 absolute w-screen top-[33.3%] bg-neutral-50 " />
+                <div className="box box-1 absolute top-[0%] w-screen bg-neutral-50" />
+                <div className="box box-2 absolute w-screen top-[66.6%] bg-neutral-50" />
+                <div className="box box-3 absolute w-screen top-[33.3%] bg-neutral-50" />
             </div>
             <MainSection aboutSectionRef={aboutSectionRef} socialsSectionRef={socialsSectionRef} />
             <AboutSection ref={aboutSectionRef} />

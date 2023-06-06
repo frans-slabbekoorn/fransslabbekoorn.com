@@ -1,18 +1,18 @@
 import React, { type RefObject } from 'react';
+import type { FC } from 'react';
 
 import { gsap } from 'gsap';
 
 import Card from '~components/Card';
 import AnimationWrapper from '~components/misc/AnimationWrapper';
-
-import ScrollWrapper from './misc/ScrollWrapper';
+import ScrollWrapper from '~components/misc/ScrollWrapper';
 
 interface MainSectionProps {
     aboutSectionRef: RefObject<HTMLDivElement>;
     socialsSectionRef: RefObject<HTMLDivElement>;
 }
 
-const MainSection: React.FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef }) => {
+const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef }) => {
     const handleCardClick = (sectionRef: React.RefObject<HTMLDivElement>) => {
         if (sectionRef.current) {
             gsap.to(window, {

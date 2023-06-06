@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import AnimationWrapper from '~components/misc/AnimationWrapper';
-
-import ScrollWrapper from './misc/ScrollWrapper';
+import ScrollWrapper from '~components/misc/ScrollWrapper';
 
 const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
     return (

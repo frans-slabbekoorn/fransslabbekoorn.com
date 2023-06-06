@@ -14,6 +14,8 @@ const projects = [
     // Add more projects as needed
 ];
 
+// This component is currently not in use but is intended for future use.
+
 const ProjectSection = forwardRef<HTMLElement>((props, ref) => {
     return (
         <>

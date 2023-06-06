@@ -1,4 +1,5 @@
 import React from 'react';
+import type { FC } from 'react';
 
 import AnimationWrapper from '~components/misc/AnimationWrapper';
 
@@ -6,7 +7,7 @@ interface Props {
     name: string;
 }
 
-const ProjectRow: React.FC<Props> = ({ name }) => {
+const ProjectRow: FC<Props> = ({ name }) => {
     return (
         <div className="relative pt-8" data-type="image">
             <div className="row text-base text-neutral-100">

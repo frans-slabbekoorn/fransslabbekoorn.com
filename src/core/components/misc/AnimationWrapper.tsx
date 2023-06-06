@@ -1,6 +1,5 @@
-'use client';
-
 import React from 'react';
+import type { FC } from 'react';
 
 import useBinaryTextAnimation from '~hooks/useBinaryTextAnimation';
 
@@ -10,7 +9,7 @@ interface TextWrapperProps {
     delay?: number;
 }
 
-const TextWrapper: React.FC<TextWrapperProps> = ({ children, speed = 0.03, delay = 0.1 }) => {
+const TextWrapper: FC<TextWrapperProps> = ({ children, speed = 0.03, delay = 0.1 }) => {
     const textRef = useBinaryTextAnimation(children, speed, delay);
 
     return <span ref={textRef}>{children}</span>;

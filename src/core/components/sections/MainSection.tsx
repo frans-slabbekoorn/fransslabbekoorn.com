@@ -35,7 +35,7 @@ const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef 
                 </ScrollWrapper>
 
                 <ScrollWrapper x={50} className="w-full sm:w-2/6">
-                    <p className="text-sm text-left sm:text-right font-regular text-neutral-600 ">
+                    <p className="text-sm text-left sm:text-right font-regular text-neutral-600">
                         <AnimationWrapper speed={0.001} delay={3.5}>
                             I&apos;m a software developer based in Ouddorp, Netherlands,
                             specializing in backend development. Skilled in Laravel, Javascript,
@@ -74,7 +74,7 @@ const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef 
                     </a>
                 </p>
                 <ScrollWrapper x={50} className="w-full sm:w-2/6">
-                    <h2 className="text-3xl font-regular text-left sm:text-right text-neutral-800 mb-4 sm:mb-2 mt-8 sm:mt-0 ">
+                    <h2 className="text-3xl font-regular text-left sm:text-right text-neutral-800 mb-4 sm:mb-2 mt-8 sm:mt-0">
                         <AnimationWrapper delay={3.5}>Software Developer</AnimationWrapper>
                     </h2>
                 </ScrollWrapper>

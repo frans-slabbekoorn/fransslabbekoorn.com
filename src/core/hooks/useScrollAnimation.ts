@@ -42,7 +42,7 @@ const useScrollAnimation = (element: React.RefObject<HTMLElement>, { x = -10 }: 
                 x: 0, // Start at x: 0
             },
             {
-                x: x, // Animate to the specified x value
+                x, // Animate to the specified x value
             },
         );
 

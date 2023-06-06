@@ -33,11 +33,11 @@ const ProjectSection = forwardRef<HTMLElement>((props, ref) => {
                     ))}
                 </div>
             </section>
-            <div className="absolute w-full  h-16 bg-primary-950 rounded-bl-[32px] rounded-br-[32px] sm:rounded-bl-[96px] sm:rounded-br-[96px]" />
+            <div className="absolute w-full h-16 bg-primary-950 rounded-bl-[32px] rounded-br-[32px] sm:rounded-bl-[96px] sm:rounded-br-[96px]" />
         </>
     );
 });
 
-ProjectSection.displayName = 'ProjectsSection';
+ProjectSection.displayName = 'ProjectSection';
 
 export default ProjectSection;

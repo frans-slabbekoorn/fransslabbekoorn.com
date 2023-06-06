@@ -46,7 +46,7 @@ const Card: FC<Props> = ({ title, onClick, color = 'bg-primary-500' }) => {
             <div className="card__title text-neutral-50 mt-6 ml-6">{title}</div>
             <div
                 ref={textRef}
-                className="absolute bottom-0  w-full text-neutral-50 text-[6rem]  transform translate-y-full transition-all duration-300 ease-in-out">
+                className="absolute bottom-0 w-full text-neutral-50 text-[6rem] transform translate-y-full transition-all duration-300 ease-in-out">
                 {title}
             </div>
             <div className="absolute bottom-0 right-0 pr-8 pb-8 text-neutral-50">

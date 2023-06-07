@@ -2,17 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 
 import { gsap } from 'gsap';
 
-// Custom hook for mouse trailer functionality
 const useMouseTrailer = () => {
-    // Refs for trailer and cursor elements
     const trailerRef = useRef<HTMLDivElement>(null);
     const cursorRef = useRef<HTMLDivElement>(null);
-
-    // State for tracking interaction
     const [interacting, setInteracting] = useState(false);
 
     useEffect(() => {
-        // Function to animate the trailer
         const animateTrailer = (e: MouseEvent) => {
             const x = e.clientX;
             const y = e.clientY;
@@ -27,11 +22,9 @@ const useMouseTrailer = () => {
             }
         };
 
-        // Function to handle mouse over event
         const handleMouseOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement | null;
 
-            // Recursive function to check if an element or its ancestor has a specific data-type attribute
             const hasAncestorWithType = (element: HTMLElement | null, type: string): boolean => {
                 if (!element) {
                     return false;
@@ -57,7 +50,6 @@ const useMouseTrailer = () => {
             }
         };
 
-        // Function to handle mouse leave event
         const handleMouseLeave = () => {
             if (cursorRef.current) {
                 gsap.to(cursorRef.current, {
@@ -68,20 +60,33 @@ const useMouseTrailer = () => {
             }
         };
 
-        // Event listeners for mouse-related events
+        const handleMouseMove = () => {
+            if (cursorRef.current) {
+                setTimeout(() => {
+                    if (cursorRef.current) {
+                        cursorRef.current.classList.add('opacity-100');
+                    }
+                }, 1000); // Delay of 1 second (1000 milliseconds)
+            }
+        };
+
+        if (cursorRef.current) {
+            cursorRef.current.classList.add('opacity-0');
+        }
+
         window.addEventListener('mousemove', animateTrailer);
         window.addEventListener('mouseover', handleMouseOver);
         window.addEventListener('mouseleave', handleMouseLeave);
+        window.addEventListener('mousemove', handleMouseMove);
 
-        // Cleanup function to remove event listeners
         return () => {
             window.removeEventListener('mousemove', animateTrailer);
             window.removeEventListener('mouseover', handleMouseOver);
             window.removeEventListener('mouseleave', handleMouseLeave);
+            window.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
 
-    // Return the necessary references and state
     return { trailerRef, cursorRef, interacting };
 };
 

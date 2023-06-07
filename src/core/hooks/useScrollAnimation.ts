@@ -12,7 +12,10 @@ interface Options {
 
 const useScrollAnimation = (element: React.RefObject<HTMLElement>, { x = -10 }: Options = {}) => {
     const [disableAnimation, setDisableAnimation] = useState(false);
-
+    const onResize = () => {
+        const screenWidth = window.innerWidth;
+        setDisableAnimation(screenWidth <= 1000);
+    };
     useEffect(() => {
         if (typeof window === 'undefined') {
             // Skip animation setup if running outside a browser context
@@ -20,11 +23,6 @@ const useScrollAnimation = (element: React.RefObject<HTMLElement>, { x = -10 }: 
         }
 
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        const handleResize = () => {
-            const screenWidth = window.innerWidth;
-            setDisableAnimation(screenWidth <= 1000);
-        };
 
         if (prefersReducedMotion || !element.current) {
             return;
@@ -40,18 +38,14 @@ const useScrollAnimation = (element: React.RefObject<HTMLElement>, { x = -10 }: 
             },
         });
 
-        if (disableAnimation) {
-            tl.fromTo(element.current, { x: 0 }, { x: 0 });
-        } else {
-            tl.fromTo(element.current, { x: 0 }, { x });
-        }
+        tl.fromTo(element.current, { x: 0 }, { x: disableAnimation ? 0 : x });
 
-        window.addEventListener('resize', handleResize);
-        handleResize(); // Call handleResize initially to set the correct disableAnimation value
+        window.addEventListener('resize', onResize);
+        onResize(); // Call onResize initially to set the correct disableAnimation value
 
         return () => {
             tl.kill();
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', onResize);
         };
     }, [element, x, disableAnimation]);
 

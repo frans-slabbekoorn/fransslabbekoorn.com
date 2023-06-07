@@ -16,7 +16,7 @@ const GeneralSansFont = General_Sans({
 const RootLayout = ({ children }: Props) => {
     return (
         <html className={GeneralSansFont.className}>
-            <body>{children}</body>
+            <body className="overflow-x-hidden">{children}</body>
         </html>
     );
 };

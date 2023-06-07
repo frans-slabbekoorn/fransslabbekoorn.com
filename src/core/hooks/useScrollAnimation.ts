@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
@@ -10,16 +10,18 @@ interface Options {
     x?: number;
 }
 
-/**
- * Creates a scroll-based animation for an element using GSAP and ScrollTrigger.
- * @param element - A reference to the HTML element to animate.
- * @param options - An object containing animation options. Defaults to `{ scale: 0.95, y: -10 }`.
- * @param options.scale - The scale of the element at the start and end of the animation.
- * @param options.x - The horizontal distance of the element at the start and end of the animation.
- */
-
 const useScrollAnimation = (element: React.RefObject<HTMLElement>, { x = -10 }: Options = {}) => {
+    const [disableAnimation, setDisableAnimation] = useState(false);
+    const onResize = () => {
+        const screenWidth = window.innerWidth;
+        setDisableAnimation(screenWidth <= 1000);
+    };
     useEffect(() => {
+        if (typeof window === 'undefined') {
+            // Skip animation setup if running outside a browser context
+            return;
+        }
+
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         if (prefersReducedMotion || !element.current) {
@@ -29,28 +31,31 @@ const useScrollAnimation = (element: React.RefObject<HTMLElement>, { x = -10 }: 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: element.current,
-                start: `top 10%`,
+                start: 'top top',
                 end: 'bottom top',
                 scrub: 1,
                 toggleActions: 'restart pause resume pause',
             },
         });
 
-        tl.fromTo(
-            element.current,
-            {
-                x: 0, // Start at x: 0
-            },
-            {
-                x, // Animate to the specified x value
-            },
-        );
+        tl.fromTo(element.current, { x: 0 }, { x: disableAnimation ? 0 : x });
+
+        window.addEventListener('resize', onResize);
+        onResize(); // Call onResize initially to set the correct disableAnimation value
 
         return () => {
             tl.kill();
+            window.removeEventListener('resize', onResize);
         };
-    }, [element, x]);
+    }, [element, x, disableAnimation]);
+
+    useEffect(() => {
+        if (!disableAnimation && element.current) {
+            gsap.set(element.current, { clearProps: 'x' });
+        }
+    }, [disableAnimation, element]);
 
     return null;
 };
+
 export default useScrollAnimation;

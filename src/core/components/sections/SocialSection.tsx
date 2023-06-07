@@ -6,9 +6,9 @@ import Icon from '~components/utils/Icon';
 const SocialSection = forwardRef<HTMLElement, object>((_, ref) => {
     return (
         <section ref={ref} className="px-8 sm:px-12 md:px-16 lg:px-32 bg-neutral-50">
-            <div className="wrapper grid grid-cols-1 sm:grid-cols-3">
-                <h3 className="text-2xl pt-48 text-neutral-950">Socials</h3>
-                <div className="grid grid-cols-1 col-span-2 gap-8 pt-48">
+            <div className="wrapper grid grid-cols-1 pt-24 sm:pt-48 sm:grid-cols-3">
+                <h3 className="text-2xl pb-32 sm:pb-0 text-neutral-950">Socials</h3>
+                <div className="grid grid-cols-1 col-span-2 gap-8">
                     <a
                         href={process.env.NEXT_PUBLIC_SOCIAL_GITHUB}
                         target="_blank"

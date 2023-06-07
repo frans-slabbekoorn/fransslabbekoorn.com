@@ -27,7 +27,7 @@ const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef 
 
     return (
         <section className="main px-8 sm:px-12 md:px-16 lg:px-32 bg-neutral-50 ">
-            <div className="wrapper pt-8 sm:pt-16 md:pt-24 flex flex-col sm:flex-row justify-between">
+            <div className="wrapper pt-16  md:pt-24 flex flex-col sm:flex-row justify-between">
                 <ScrollWrapper x={-50} className="w-full sm:w-2/6">
                     <h1 className="text-3xl font-regular text-neutral-800 mb-4 sm:mb-2">
                         <AnimationWrapper delay={3.5}>Frans Slabbekoorn</AnimationWrapper>

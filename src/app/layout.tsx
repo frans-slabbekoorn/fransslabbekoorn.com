@@ -3,6 +3,7 @@ import React, { type ReactNode } from 'react';
 import { type Metadata } from 'next';
 
 import '@material-design-icons/font/filled.css';
+import { Analytics } from '@vercel/analytics/react';
 import General_Sans from 'next/font/local';
 
 import '~styles/global.css';
@@ -18,7 +19,10 @@ const GeneralSansFont = General_Sans({
 const RootLayout = ({ children }: Props) => {
     return (
         <html className={GeneralSansFont.className}>
-            <body className="overflow-x-hidden">{children}</body>
+            <body className="overflow-x-hidden">
+                {children}
+                <Analytics />
+            </body>
         </html>
     );
 };

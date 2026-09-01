@@ -4,6 +4,7 @@ import { type Metadata } from 'next';
 
 import '@material-design-icons/font/filled.css';
 import { Analytics } from '@vercel/analytics/react';
+import { EyesNextProvider } from 'eyes-next';
 import General_Sans from 'next/font/local';
 
 import '~styles/global.css';
@@ -20,7 +21,7 @@ const RootLayout = ({ children }: Props) => {
     return (
         <html className={GeneralSansFont.className}>
             <body className="overflow-x-hidden">
-                {children}
+                <EyesNextProvider siteId="690801271">{children}</EyesNextProvider>
                 <Analytics />
             </body>
         </html>

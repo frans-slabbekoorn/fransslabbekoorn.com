@@ -1,3 +1,5 @@
+const { withEyes } = require('eyes-next/config');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
@@ -5,4 +7,4 @@ const nextConfig = {
     },
 };
 
-module.exports = nextConfig;
+module.exports = withEyes(nextConfig);

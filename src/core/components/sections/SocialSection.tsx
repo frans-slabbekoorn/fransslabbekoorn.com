@@ -1,9 +1,8 @@
 import React, { forwardRef } from 'react';
 
-import { track } from '@vercel/analytics';
-
 import AnimationWrapper from '~components/misc/AnimationWrapper';
 import Icon from '~components/utils/Icon';
+import { track } from '~functions/eyes';
 
 const socials = [
     { platform: 'Github', href: process.env.NEXT_PUBLIC_SOCIAL_GITHUB },

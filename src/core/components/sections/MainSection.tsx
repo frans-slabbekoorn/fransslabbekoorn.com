@@ -1,12 +1,12 @@
 import React, { type RefObject } from 'react';
 import type { FC } from 'react';
 
-import { track } from '@vercel/analytics';
 import { gsap } from 'gsap';
 
 import Card from '~components/Card';
 import AnimationWrapper from '~components/misc/AnimationWrapper';
 import ScrollWrapper from '~components/misc/ScrollWrapper';
+import { track } from '~functions/eyes';
 
 interface MainSectionProps {
     aboutSectionRef: RefObject<HTMLDivElement>;

@@ -1,9 +1,8 @@
 import React, { forwardRef, useEffect, useRef } from 'react';
 
-import { track } from '@vercel/analytics';
-
 import AnimationWrapper from '~components/misc/AnimationWrapper';
 import ScrollWrapper from '~components/misc/ScrollWrapper';
+import { track } from '~functions/eyes';
 
 const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
     const sectionRef = useRef<HTMLElement | null>(null);

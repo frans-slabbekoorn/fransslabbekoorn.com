@@ -1,6 +1,7 @@
 import React, { type RefObject } from 'react';
 import type { FC } from 'react';
 
+import { track } from '@vercel/analytics';
 import { gsap } from 'gsap';
 
 import Card from '~components/Card';
@@ -69,7 +70,13 @@ const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef 
                         href="https://pixelperfect.agency"
                         className="underline"
                         target="_blank"
-                        rel="noreferrer">
+                        rel="noreferrer"
+                        onClick={() =>
+                            track('ProjectLinkClicked', {
+                                name: 'Pixel Perfect Agency',
+                                url: 'https://pixelperfect.agency',
+                            })
+                        }>
                         Pixel Perfect Agency
                     </a>
                 </p>

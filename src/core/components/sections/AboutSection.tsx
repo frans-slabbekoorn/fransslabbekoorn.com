@@ -1,12 +1,45 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect, useRef } from 'react';
+
+import { track } from '@vercel/analytics';
 
 import AnimationWrapper from '~components/misc/AnimationWrapper';
 import ScrollWrapper from '~components/misc/ScrollWrapper';
 
 const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
+    const sectionRef = useRef<HTMLElement | null>(null);
+
+    const setRefs = (node: HTMLElement | null) => {
+        sectionRef.current = node;
+        if (typeof ref === 'function') {
+            ref(node);
+        } else if (ref) {
+            ref.current = node;
+        }
+    };
+
+    useEffect(() => {
+        const section = sectionRef.current;
+        if (!section) {
+            return undefined;
+        }
+
+        const observer = new IntersectionObserver(
+            entries => {
+                if (entries.some(entry => entry.isIntersecting)) {
+                    track('AboutVisited');
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.3 },
+        );
+        observer.observe(section);
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
-            <section ref={ref} className="about px-8 sm:px-12 md:px-16 lg:px-32 bg-neutral-50">
+            <section ref={setRefs} className="about px-8 sm:px-12 md:px-16 lg:px-32 bg-neutral-50">
                 <div className="wrapper pt-8 sm:pt-16 md:pt-24 grid grid-cols-1 sm:grid-cols-4">
                     <ScrollWrapper x={-50}>
                         <p className="label text-neutral-600 text-sm col-span-1">About me</p>
@@ -84,6 +117,12 @@ const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
                                 href="http://pixelperfect.agency"
                                 target="_blank"
                                 rel="noreferrer"
+                                onClick={() =>
+                                    track('ProjectLinkClicked', {
+                                        name: 'Pixel Perfect Agency',
+                                        url: 'http://pixelperfect.agency',
+                                    })
+                                }
                                 className="wrapper flex justify-between">
                                 <p className="year">
                                     <AnimationWrapper>2023-now</AnimationWrapper>

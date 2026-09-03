@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import Card from '~components/Card';
 import AnimationWrapper from '~components/misc/AnimationWrapper';
 import ScrollWrapper from '~components/misc/ScrollWrapper';
+import { track } from '~functions/eyes';
 
 interface MainSectionProps {
     aboutSectionRef: RefObject<HTMLDivElement>;
@@ -69,7 +70,13 @@ const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef 
                         href="https://pixelperfect.agency"
                         className="underline"
                         target="_blank"
-                        rel="noreferrer">
+                        rel="noreferrer"
+                        onClick={() =>
+                            track('ProjectLinkClicked', {
+                                name: 'Pixel Perfect Agency',
+                                url: 'https://pixelperfect.agency',
+                            })
+                        }>
                         Pixel Perfect Agency
                     </a>
                 </p>

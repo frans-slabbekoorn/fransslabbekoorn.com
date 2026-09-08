@@ -5,5 +5,5 @@ updates:
       assignees:
           - 'frans-slabbekoorn'
       schedule:
-          interval: 'monthly'
-          day: 'sunday'
+          interval: 'cron'
+          cronjob: '0 6 15 * *'

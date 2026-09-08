@@ -5,7 +5,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
+        "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
         "stylelint": "stylelint \"**/*.scss\"",
         "test": "playwright test",
         "test:debug": "playwright test --headed",
@@ -18,14 +18,14 @@
         "classnames": "^2.3.2",
         "eyes-next": "^0.2.0",
         "gsap": "^3.11.5",
-        "next": "^15.5.21",
+        "next": "^16.3.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "scss-partials": "^1.4.0",
         "uuid": "^14.0.0"
     },
     "devDependencies": {
-        "@next/eslint-plugin-next": "^13.2.4",
+        "@next/eslint-plugin-next": "^16.3.4",
         "@playwright/test": "^1.30.0",
         "@types/node": "26.4.1",
         "@types/react": "18.2.0",
@@ -42,7 +42,7 @@
     "eslintConfig": {
         "extends": [
             "pixel",
-            "plugin:@next/next/recommended"
+            "plugin:@next/next/recommended-legacy"
         ]
     },
     "prettier": "eslint-config-pixel/prettier"

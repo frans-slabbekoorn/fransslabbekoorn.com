@@ -34,7 +34,7 @@ pnpm run dev
 pnpm run dev # Run Next.js development server
 pnpm run build # Create a build of the project.
 pnpm start # Run the build
-pnpm run lint # Lint all javascript & typescript (.js, jsx, ts, tsx) using next lint with eslint & prettier
+pnpm run lint # Lint all javascript & typescript (.js, jsx, ts, tsx) using eslint & prettier
 pnpm run stylelint # Lint all css & scss (.css, .scss)
 pnpm run test # Run all tests
 pnpm run test:debug # Run all tests in debug mode with visible browser

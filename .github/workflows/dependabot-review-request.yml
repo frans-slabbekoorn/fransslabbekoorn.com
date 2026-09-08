@@ -1,0 +1,18 @@
+name: Request review on dependabot prs
+
+on:
+    pull_request_target:
+        types: [opened, reopened]
+
+permissions:
+    pull-requests: write
+
+jobs:
+    request-review:
+        if: github.actor == 'dependabot[bot]'
+        runs-on: ubuntu-latest
+        steps:
+            - run: gh pr edit "$PR_URL" --add-reviewer frans-slabbekoorn
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  PR_URL: ${{ github.event.pull_request.html_url }}

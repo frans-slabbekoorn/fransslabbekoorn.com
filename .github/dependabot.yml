@@ -1,0 +1,9 @@
+version: 2
+updates:
+    - package-ecosystem: 'npm'
+      directory: '/'
+      assignees:
+          - 'frans-slabbekoorn'
+      schedule:
+          interval: 'cron'
+          cronjob: '0 6 15 * *'

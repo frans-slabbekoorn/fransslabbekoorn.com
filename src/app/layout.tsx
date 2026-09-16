@@ -6,6 +6,7 @@ import '@material-design-icons/font/filled.css';
 import { Analytics } from '@vercel/analytics/react';
 import { EyesNextProvider } from 'eyes-next';
 import General_Sans from 'next/font/local';
+import Script from 'next/script';
 
 import '~styles/global.css';
 
@@ -23,6 +24,12 @@ const RootLayout = ({ children }: Props) => {
             <body className="overflow-x-hidden">
                 <EyesNextProvider siteId="690801271">{children}</EyesNextProvider>
                 <Analytics />
+                <Script
+                    src="https://datafa.st/js/script.js"
+                    data-website-id="dfid_XOSl7L36308TqnSBoxxUO"
+                    data-domain="fransslabbekoorn.com"
+                    strategy="afterInteractive"
+                />
             </body>
         </html>
     );

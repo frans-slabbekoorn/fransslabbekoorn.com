@@ -66,11 +66,13 @@ const Page = () => {
         <>
             <CustomCursor />
 
-            <div className="preloader absolute w-full h-screen fixed z-10" ref={preloaderRef}>
+            <div
+                className="preloader fixed w-full h-screen z-10 motion-reduce:hidden"
+                ref={preloaderRef}>
                 <div className=" h-screen flex justify-center items-center flex-col">
                     <span className="inline-flex overflow-hidden">
                         <span className="inline-flex overflow-hidden">
-                            <h1 className="preloader__text text-xl text-neutral-950 z-10">
+                            <h1 className="preloader__text -translate-y-[100px] -rotate-[5.625deg] text-xl text-neutral-950 z-10">
                                 <AnimationWrapper delay={1}>Frans Slabbekoorn</AnimationWrapper>
                             </h1>
                         </span>
@@ -78,15 +80,15 @@ const Page = () => {
 
                     <span className="inline-flex overflow-hidden">
                         <span className="inline-flex overflow-hidden">
-                            <h2 className="preloader__text text-base text-neutral-800 z-10">
+                            <h2 className="preloader__text -translate-y-[100px] -rotate-[5.625deg] text-base text-neutral-800 z-10">
                                 <AnimationWrapper delay={1}>Software Developer</AnimationWrapper>
                             </h2>
                         </span>
                     </span>
                 </div>
-                <div className="box box-1 absolute top-[0%] w-screen bg-neutral-50" />
-                <div className="box box-2 absolute w-screen top-[66.6%] bg-neutral-50" />
-                <div className="box box-3 absolute w-screen top-[33.3%] bg-neutral-50" />
+                <div className="box box-1 absolute top-[0%] h-[33.3vh] w-screen bg-neutral-50" />
+                <div className="box box-2 absolute h-[33.3vh] w-screen top-[66.6%] bg-neutral-50" />
+                <div className="box box-3 absolute h-[33.3vh] w-screen top-[33.3%] bg-neutral-50" />
             </div>
             <MainSection aboutSectionRef={aboutSectionRef} socialsSectionRef={socialsSectionRef} />
             <AboutSection ref={aboutSectionRef} />

@@ -1,6 +1,6 @@
 import React, { type ReactNode } from 'react';
 
-import { type Metadata } from 'next';
+import { type Metadata, type Viewport } from 'next';
 
 import '@material-design-icons/font/filled.css';
 import { Analytics } from '@vercel/analytics/react';
@@ -20,7 +20,7 @@ const GeneralSansFont = General_Sans({
 
 const RootLayout = ({ children }: Props) => {
     return (
-        <html className={GeneralSansFont.className}>
+        <html lang="en" className={GeneralSansFont.className}>
             <body className="overflow-x-hidden">
                 <EyesNextProvider siteId="690801271">{children}</EyesNextProvider>
                 <Analytics />
@@ -36,13 +36,12 @@ const RootLayout = ({ children }: Props) => {
 };
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://fransslabbekoorn.com'),
     title: 'Frans Slabbekoorn | Software Developer',
     description:
         "I'm a software developer based in Ouddorp, Netherlands, with expertise in backend development. Skilled in Laravel, Javascript, API's, and databases, I craft efficient solutions for complex problems.",
     icons: { icon: '/assets/icons/favicon.png' },
     keywords: ['frans slabbekoorn', 'ouddorp', 'software developer', 'backend developer'],
-    colorScheme: 'light',
-    themeColor: '#E8F0F5',
     openGraph: {
         title: 'Frans Slabbekoorn',
         description:
@@ -58,6 +57,11 @@ export const metadata: Metadata = {
             },
         ],
     },
+};
+
+export const viewport: Viewport = {
+    colorScheme: 'light',
+    themeColor: '#E8F0F5',
 };
 
 export default RootLayout;

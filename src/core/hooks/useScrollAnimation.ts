@@ -10,7 +10,10 @@ interface Options {
     x?: number;
 }
 
-const useScrollAnimation = (element: React.RefObject<HTMLElement>, { x = -10 }: Options = {}) => {
+const useScrollAnimation = (
+    element: React.RefObject<HTMLElement | null>,
+    { x = -10 }: Options = {},
+) => {
     const [disableAnimation, setDisableAnimation] = useState(false);
     const onResize = () => {
         const screenWidth = window.innerWidth;

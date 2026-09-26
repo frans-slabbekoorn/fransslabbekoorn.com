@@ -12,7 +12,7 @@ interface Props {
 }
 
 const ScrollWrapper = ({ children, x = -10, className }: Props) => {
-    const elementRef = useRef(null);
+    const elementRef = useRef<HTMLDivElement>(null);
 
     useScaleAnimation(elementRef, { x });
 

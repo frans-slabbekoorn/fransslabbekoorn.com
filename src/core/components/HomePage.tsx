@@ -10,10 +10,15 @@ import CustomCursor from '~components/misc/CustomCursor';
 import AboutSection from '~components/sections/AboutSection';
 import MainSection from '~components/sections/MainSection';
 import SocialSection from '~components/sections/SocialSection';
+import type { Dictionary } from '~locales/en';
 
 gsap.registerPlugin(ScrollToPlugin);
 
-const Page = () => {
+interface Props {
+    dict: Dictionary;
+}
+
+const HomePage = ({ dict }: Props) => {
     const preloaderRef = useRef<HTMLDivElement>(null);
     const aboutSectionRef = useRef<HTMLElement>(null);
     const socialsSectionRef = useRef<HTMLElement>(null);
@@ -81,7 +86,7 @@ const Page = () => {
                     <span className="inline-flex overflow-hidden">
                         <span className="inline-flex overflow-hidden">
                             <h2 className="preloader__text -translate-y-[100px] -rotate-[5.625deg] text-base text-neutral-800 z-10">
-                                <AnimationWrapper delay={1}>Software Developer</AnimationWrapper>
+                                <AnimationWrapper delay={1}>{dict.role}</AnimationWrapper>
                             </h2>
                         </span>
                     </span>
@@ -90,11 +95,15 @@ const Page = () => {
                 <div className="box box-2 absolute h-[33.3vh] w-screen top-[66.6%] bg-neutral-50" />
                 <div className="box box-3 absolute h-[33.3vh] w-screen top-[33.3%] bg-neutral-50" />
             </div>
-            <MainSection aboutSectionRef={aboutSectionRef} socialsSectionRef={socialsSectionRef} />
-            <AboutSection ref={aboutSectionRef} />
-            <SocialSection ref={socialsSectionRef} />
+            <MainSection
+                dict={dict}
+                aboutSectionRef={aboutSectionRef}
+                socialsSectionRef={socialsSectionRef}
+            />
+            <AboutSection ref={aboutSectionRef} dict={dict} />
+            <SocialSection ref={socialsSectionRef} dict={dict} />
         </>
     );
 };
 
-export default Page;
+export default HomePage;

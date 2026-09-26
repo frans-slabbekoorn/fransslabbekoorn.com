@@ -7,13 +7,15 @@ import Card from '~components/Card';
 import AnimationWrapper from '~components/misc/AnimationWrapper';
 import ScrollWrapper from '~components/misc/ScrollWrapper';
 import { track } from '~functions/eyes';
+import type { Dictionary } from '~locales/en';
 
 interface MainSectionProps {
+    dict: Dictionary;
     aboutSectionRef: RefObject<HTMLElement | null>;
     socialsSectionRef: RefObject<HTMLElement | null>;
 }
 
-const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef }) => {
+const MainSection: FC<MainSectionProps> = ({ dict, aboutSectionRef, socialsSectionRef }) => {
     const handleCardClick = (sectionRef: React.RefObject<HTMLElement | null>) => {
         if (sectionRef.current) {
             gsap.to(window, {
@@ -38,10 +40,7 @@ const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef 
                 <ScrollWrapper x={50} className="w-full sm:w-2/6">
                     <p className="text-sm text-left sm:text-right font-regular text-neutral-600">
                         <AnimationWrapper speed={0.001} delay={3.5}>
-                            I&apos;m a software developer based in Ouddorp, Netherlands,
-                            specializing in backend development. Skilled in Laravel, Javascript,
-                            API&apos;s and databases, I craft efficient solutions for complex
-                            problems.
+                            {dict.intro}
                         </AnimationWrapper>
                     </p>
                 </ScrollWrapper>
@@ -51,20 +50,23 @@ const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef 
                 <div className="cards__wrapper mt-8 mb-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <ScrollWrapper x={-20}>
                         <Card
-                            title="About"
+                            title={dict.cards.about}
                             onClick={() => handleCardClick(aboutSectionRef)}
                             color="bg-primary-900"
                         />
                     </ScrollWrapper>
                     <ScrollWrapper x={20}>
-                        <Card title="Socials" onClick={() => handleCardClick(socialsSectionRef)} />
+                        <Card
+                            title={dict.cards.socials}
+                            onClick={() => handleCardClick(socialsSectionRef)}
+                        />
                     </ScrollWrapper>
                 </div>
                 <hr className="h-px border-neutral-200" />
             </div>
             <div className="wrapper pt-8 sm:pt-12 md:pt-16 flex flex-col sm:flex-row justify-between">
                 <p className="text-sm sm:text-left font-regular text-neutral-600 w-full sm:w-2/4 mt-4 sm:mt-48">
-                    Currently working for{' '}
+                    {dict.currentlyWorkingFor}{' '}
                     <a
                         data-type="link"
                         href="https://pixelperfect.agency"
@@ -82,7 +84,7 @@ const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef 
                 </p>
                 <ScrollWrapper x={50} className="w-full sm:w-2/6">
                     <h2 className="text-3xl font-regular text-left sm:text-right text-neutral-800 mb-4 sm:mb-2 mt-8 sm:mt-0">
-                        <AnimationWrapper delay={3.5}>Software Developer</AnimationWrapper>
+                        <AnimationWrapper delay={3.5}>{dict.role}</AnimationWrapper>
                     </h2>
                 </ScrollWrapper>
             </div>

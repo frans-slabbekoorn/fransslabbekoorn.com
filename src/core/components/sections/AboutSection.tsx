@@ -3,10 +3,15 @@ import React, { forwardRef, useEffect, useRef } from 'react';
 import AnimationWrapper from '~components/misc/AnimationWrapper';
 import ScrollWrapper from '~components/misc/ScrollWrapper';
 import { track } from '~functions/eyes';
+import type { Dictionary } from '~locales/en';
 
 const CAREER_START_YEAR = 2019;
 
-const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
+interface Props {
+    dict: Dictionary;
+}
+
+const AboutSection = forwardRef<HTMLElement, Props>(({ dict }, ref) => {
     const sectionRef = useRef<HTMLElement | null>(null);
     const yearsOfExperience = new Date().getFullYear() - CAREER_START_YEAR;
 
@@ -44,14 +49,12 @@ const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
             <section ref={setRefs} className="about px-8 sm:px-12 md:px-16 lg:px-32 bg-neutral-50">
                 <div className="wrapper pt-8 sm:pt-16 md:pt-24 grid grid-cols-1 sm:grid-cols-4">
                     <ScrollWrapper x={-50}>
-                        <p className="label text-neutral-600 text-sm col-span-1">About me</p>
+                        <p className="label text-neutral-600 text-sm col-span-1">
+                            {dict.about.label}
+                        </p>
                     </ScrollWrapper>
                     <h3 className="text-xl text-neutral-700 col-span-3 mt-8 sm:mt-0">
-                        As a Software Developer, I am responsible for creating fast, robust APIs and
-                        handling all technical aspects related to backend development. My expertise
-                        lies in crafting efficient solutions with a focus on scalability and
-                        performance. My passion for technology and coding is what drives me to
-                        constantly learn and improve my skills.
+                        {dict.about.text}
                         <hr className="h-px border-neutral-200 mt-8" />
                     </h3>
                 </div>
@@ -59,12 +62,13 @@ const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
             <section className="about px-8 sm:px-12 md:px-16 lg:px-32 bg-neutral-50">
                 <div className="wrapper pt-8 sm:pt-16 md:pt-24 grid grid-cols-1 sm:grid-cols-4">
                     <ScrollWrapper x={-50}>
-                        <p className="label text-neutral-600 text-sm col-span-1">Tech Stack</p>
+                        <p className="label text-neutral-600 text-sm col-span-1">
+                            {dict.about.techStackLabel}
+                        </p>
                     </ScrollWrapper>
 
                     <h3 className="text-base text-neutral-700 col-span-2 mt-8 sm:mt-0">
-                        With over {yearsOfExperience} years of experience in backend development
-                        I&apos;m confident in using the following technologies:
+                        {dict.about.techStackText.replace('{years}', String(yearsOfExperience))}
                     </h3>
                 </div>
                 <div className="wrapper grid grid-cols-1 sm:grid-cols-4 mt-16">
@@ -92,11 +96,12 @@ const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
             <section className="about px-8 sm:px-12 md:px-16 lg:px-32 bg-neutral-50">
                 <div className="wrapper pt-8 sm:pt-16 md:pt-24 grid grid-cols-1 sm:grid-cols-4">
                     <ScrollWrapper x={-50}>
-                        <p className="label text-neutral-600 text-sm col-span-1">Experience</p>
+                        <p className="label text-neutral-600 text-sm col-span-1">
+                            {dict.about.experienceLabel}
+                        </p>
                     </ScrollWrapper>
                     <h3 className="text-base text-neutral-700 col-span-2 mt-8 sm:mt-0">
-                        Throughout my career, I have gained valuable experience working on diverse
-                        projects in different industries.
+                        {dict.about.experienceText}
                     </h3>
                 </div>
                 <div className="wrapper grid grid-cols-1 sm:grid-cols-4 mt-16 pb-32">
@@ -127,7 +132,7 @@ const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
                                 }
                                 className="wrapper flex justify-between">
                                 <p className="year">
-                                    <AnimationWrapper>2023-now</AnimationWrapper>
+                                    <AnimationWrapper>{`2023-${dict.about.now}`}</AnimationWrapper>
                                 </p>
                                 <p className="place">
                                     <AnimationWrapper>Pixel Perfect Agency</AnimationWrapper>

@@ -44,7 +44,7 @@ If a design system is used only in this project, it should be placed in the **`/
 
 ### **/locales**
 
-The optional **locales** folder contains all the translations for the application. _This is not implemented yet!_
+The **locales** folder contains a dictionary per language (`en.ts`, `nl.ts`). English is served at `/`, Dutch at `/nl`. Add a language by adding a dictionary and registering it in `index.ts`.
 <br>
 
 ### **/modules**

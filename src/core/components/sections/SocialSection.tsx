@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react';
 import AnimationWrapper from '~components/misc/AnimationWrapper';
 import Icon from '~components/utils/Icon';
 import { track } from '~functions/eyes';
+import type { Dictionary } from '~locales/en';
 
 const socials = [
     { platform: 'Github', href: process.env.NEXT_PUBLIC_SOCIAL_GITHUB },
@@ -12,11 +13,15 @@ const socials = [
     { platform: 'Facebook', href: process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK },
 ];
 
-const SocialSection = forwardRef<HTMLElement, object>((_, ref) => {
+interface Props {
+    dict: Dictionary;
+}
+
+const SocialSection = forwardRef<HTMLElement, Props>(({ dict }, ref) => {
     return (
         <section ref={ref} className="px-8 sm:px-12 md:px-16 lg:px-32 bg-neutral-50">
             <div className="wrapper grid grid-cols-1 pt-24 sm:pt-48 sm:grid-cols-3">
-                <h3 className="text-2xl pb-32 sm:pb-0 text-neutral-950">Socials</h3>
+                <h3 className="text-2xl pb-32 sm:pb-0 text-neutral-950">{dict.socials.title}</h3>
                 <div className="grid grid-cols-1 col-span-2 gap-8">
                     {socials.map(({ platform, href }) => (
                         <a
@@ -38,8 +43,19 @@ const SocialSection = forwardRef<HTMLElement, object>((_, ref) => {
             </div>
             <hr className="h-px border-neutral-200 mt-32" />
             <div className="flex justify-between mt-8 pb-8">
-                <p className="text-sm text-neutral-600">Frans Slabbekoorn</p>
-                <p className="text-[0.8rem] text-neutral-600">Frontend by Joan Verhulst</p>
+                <p className="text-sm text-neutral-600">
+                    Frans Slabbekoorn
+                    <span aria-hidden="true"> · </span>
+                    <a
+                        data-type="link"
+                        href={dict.languageSwitch.href}
+                        hrefLang={dict.languageSwitch.lang}
+                        lang={dict.languageSwitch.lang}
+                        className="underline">
+                        {dict.languageSwitch.label}
+                    </a>
+                </p>
+                <p className="text-[0.8rem] text-neutral-600">{dict.socials.frontendBy}</p>
             </div>
         </section>
     );

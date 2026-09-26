@@ -14,6 +14,11 @@ const useBinaryTextAnimation = (initialText: string, speed: number = 0.05, delay
 
     useEffect(() => {
         const textElement = textRef.current;
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return undefined;
+        }
+
         let iteration = 0;
         const originalText = initialText || '';
 

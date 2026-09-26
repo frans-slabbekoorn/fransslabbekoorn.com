@@ -4,8 +4,11 @@ import AnimationWrapper from '~components/misc/AnimationWrapper';
 import ScrollWrapper from '~components/misc/ScrollWrapper';
 import { track } from '~functions/eyes';
 
+const CAREER_START_YEAR = 2019;
+
 const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
     const sectionRef = useRef<HTMLElement | null>(null);
+    const yearsOfExperience = new Date().getFullYear() - CAREER_START_YEAR;
 
     const setRefs = (node: HTMLElement | null) => {
         sectionRef.current = node;
@@ -60,8 +63,8 @@ const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
                     </ScrollWrapper>
 
                     <h3 className="text-base text-neutral-700 col-span-2 mt-8 sm:mt-0">
-                        With over 4 years of experience in backend development I&apos;m confident in
-                        using the following technologies:
+                        With over {yearsOfExperience} years of experience in backend development
+                        I&apos;m confident in using the following technologies:
                     </h3>
                 </div>
                 <div className="wrapper grid grid-cols-1 sm:grid-cols-4 mt-16">
@@ -113,13 +116,13 @@ const AboutSection = forwardRef<HTMLElement, object>((_, ref) => {
                         <div className="row text-base text-neutral-600">
                             <a
                                 data-type="link"
-                                href="http://pixelperfect.agency"
+                                href="https://pixelperfect.agency"
                                 target="_blank"
                                 rel="noreferrer"
                                 onClick={() =>
                                     track('ProjectLinkClicked', {
                                         name: 'Pixel Perfect Agency',
-                                        url: 'http://pixelperfect.agency',
+                                        url: 'https://pixelperfect.agency',
                                     })
                                 }
                                 className="wrapper flex justify-between">

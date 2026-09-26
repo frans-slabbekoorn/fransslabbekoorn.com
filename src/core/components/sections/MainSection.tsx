@@ -9,12 +9,12 @@ import ScrollWrapper from '~components/misc/ScrollWrapper';
 import { track } from '~functions/eyes';
 
 interface MainSectionProps {
-    aboutSectionRef: RefObject<HTMLDivElement>;
-    socialsSectionRef: RefObject<HTMLDivElement>;
+    aboutSectionRef: RefObject<HTMLElement | null>;
+    socialsSectionRef: RefObject<HTMLElement | null>;
 }
 
 const MainSection: FC<MainSectionProps> = ({ aboutSectionRef, socialsSectionRef }) => {
-    const handleCardClick = (sectionRef: React.RefObject<HTMLDivElement>) => {
+    const handleCardClick = (sectionRef: React.RefObject<HTMLElement | null>) => {
         if (sectionRef.current) {
             gsap.to(window, {
                 duration: 1,

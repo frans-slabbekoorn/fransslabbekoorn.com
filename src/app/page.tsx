@@ -15,10 +15,15 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const Page = () => {
     const preloaderRef = useRef<HTMLDivElement>(null);
-    const aboutSectionRef = useRef(null);
-    const socialsSectionRef = useRef(null);
+    const aboutSectionRef = useRef<HTMLElement>(null);
+    const socialsSectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            addInvisibleClass();
+            return;
+        }
+
         const timeline = gsap.timeline();
 
         const text = document.querySelectorAll('.preloader__text');

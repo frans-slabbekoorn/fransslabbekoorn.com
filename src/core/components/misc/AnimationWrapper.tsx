@@ -12,7 +12,15 @@ interface TextWrapperProps {
 const TextWrapper: FC<TextWrapperProps> = ({ children, speed = 0.03, delay = 0.1 }) => {
     const textRef = useBinaryTextAnimation(children, speed, delay);
 
-    return <span ref={textRef}>{children}</span>;
+    // Screen readers get the real text, the scrambled copy is only visual
+    return (
+        <span>
+            <span className="sr-only">{children}</span>
+            <span ref={textRef} aria-hidden="true">
+                {children}
+            </span>
+        </span>
+    );
 };
 
 export default TextWrapper;

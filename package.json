@@ -17,7 +17,7 @@
         "@material-design-icons/font": "^0.14.8",
         "@vercel/analytics": "^2.0.1",
         "classnames": "^2.3.2",
-        "eyes-next": "^0.2.0",
+        "eyes-next": "^0.3.1",
         "gsap": "^3.11.5",
         "next": "^16.3.8",
         "react": "^19.3.0",

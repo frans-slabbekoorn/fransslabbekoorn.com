@@ -15,7 +15,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^7.3.1",
         "@material-design-icons/font": "^0.14.8",
-        "@vercel/analytics": "^1.2.2",
+        "@vercel/analytics": "^2.0.1",
         "classnames": "^2.3.2",
         "eyes-next": "^0.2.0",
         "gsap": "^3.11.5",

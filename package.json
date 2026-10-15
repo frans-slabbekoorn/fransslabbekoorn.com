@@ -1,6 +1,7 @@
 {
     "name": "fransslabbekoorn.com",
     "version": "1.0.0",
+    "packageManager": "pnpm@10.34.6",
     "scripts": {
         "dev": "next dev",
         "build": "next build",

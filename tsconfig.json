@@ -19,18 +19,17 @@
                 "name": "next"
             }
         ],
-        "baseUrl": ".",
         "paths": {
-            "~locales/*": ["src/locales/*"],
-            "~modules/*": ["src/modules/*"],
-            "~tests/*": ["src/tests/*"],
-            "~types/*": ["src/types/*"],
-            "~components/*": ["src/core/components/*"],
-            "~functions/*": ["src/core/functions/*"],
-            "~hooks/*": ["src/core/hooks/*"],
-            "~styles/*": ["src/core/styles/*"],
-            "~core*": ["src/core/*"],
-            "~/*": ["src/*"]
+            "~locales/*": ["./src/locales/*"],
+            "~modules/*": ["./src/modules/*"],
+            "~tests/*": ["./src/tests/*"],
+            "~types/*": ["./src/types/*"],
+            "~components/*": ["./src/core/components/*"],
+            "~functions/*": ["./src/core/functions/*"],
+            "~hooks/*": ["./src/core/hooks/*"],
+            "~styles/*": ["./src/core/styles/*"],
+            "~core*": ["./src/core/*"],
+            "~/*": ["./src/*"]
         }
     },
     "include": [
